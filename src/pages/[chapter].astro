@@ -1,0 +1,18 @@
+---
+export function getStaticPaths() {
+  return [
+    {params: {chapter: 'thefirstbook'}},
+    {params: {chapter: 'thesecondbook'}},
+    {params: {chapter: 'thethirdbook'}},
+  ];
+}
+
+const { chapter } = Astro.params;
+
+
+const posts = await Astro.glob('../data/*.md'); 
+const currentPost = posts.filter(post => post.frontmatter.link === chapter)
+const test = currentPost[0].rawContent().split(/[0-9]+/)
+
+---
+{test.map(t => <div class="my-8 max-w-prose mx-auto">{t}</div>)}
