@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const entries = await Astro.glob('../data/*.md'); 
+  //console.log(entries[0].rawContent())
 
   return entries.map(entry => ({
     params: { 
@@ -15,15 +16,28 @@ export async function getStaticPaths() {
   }))
 }
 let formattedEntries = Astro.props.entry.rawContent().split(/[0-9]+/)
-formattedEntries = formattedEntries.map(entry => entry.startsWith('. ') ? entry.substring(2) : entry)
 
+formattedEntries = formattedEntries.map(entry => entry.startsWith('. ') ? entry.substring(2) : entry)
+formattedEntries.shift()
+
+let array = new Array(formattedEntries.length).fill(0).map((_, i) => i + 1)
+
+let current = -1
 
 
 ---
 <Layout title="Welcome to Astro.">
-{formattedEntries.map(entry => 
-<Entry entry={entry}/>
-)}
+  <div class="w-full flex justify-center items-center	h-24 ">
+ <h2 class="text-zinc-800  text-2xl font-semibold font-playfair "> {Astro.props.entry.frontmatter.title}</h2>
+</div>
+{formattedEntries.map((entry) => {
+  current ++
+return(
+ 
+<Entry entry={entry} number={array[current]}/>
+<div class='bg-slate-200 h-px my-8 w-4/5 mx-auto'></div>
+)})}
+ 
 </Layout>
 
 

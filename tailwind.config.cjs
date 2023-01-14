@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      'playfair': ['Playfair Display', 'sans-serif']
+      'playfair': ['Playfair Display', 'serif']
 
     }
   },
