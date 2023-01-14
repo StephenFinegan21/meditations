@@ -1,0 +1,16 @@
+---
+const entry = Astro.props
+console.log(entry)
+---
+
+<div class="my-12 px-8 sm:w-4/5 md:w-3/5 sm:mx-auto font-playfair tracking-wide leading-relaxed text-zinc-700 text-sm ">
+   <p class="entry"> {entry.entry}</p>
+</div>
+
+
+<style>
+    .entry::first-letter {
+        color: rgb(43, 43, 43);
+        font-size: 1.4rem;
+    }
+</style>

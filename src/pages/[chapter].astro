@@ -1,18 +1,35 @@
 ---
-export function getStaticPaths() {
-  return [
-    {params: {chapter: 'thefirstbook'}},
-    {params: {chapter: 'thesecondbook'}},
-    {params: {chapter: 'thethirdbook'}},
-  ];
+import Entry from "../components/Entry.astro";
+import Layout from '../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const entries = await Astro.glob('../data/*.md'); 
+
+  return entries.map(entry => ({
+    params: { 
+      chapter: entry.frontmatter.link 
+    },
+    props: {
+      entry
+    },
+  }))
 }
+let formattedEntries = Astro.props.entry.rawContent().split(/[0-9]+/)
+formattedEntries = formattedEntries.map(entry => entry.startsWith('. ') ? entry.substring(2) : entry)
 
-const { chapter } = Astro.params;
 
-
-const posts = await Astro.glob('../data/*.md'); 
-const currentPost = posts.filter(post => post.frontmatter.link === chapter)
-const test = currentPost[0].rawContent().split(/[0-9]+/)
 
 ---
-{test.map(t => <div class="my-8 max-w-prose mx-auto">{t}</div>)}
+<Layout title="Welcome to Astro.">
+{formattedEntries.map(entry => 
+<Entry entry={entry}/>
+)}
+</Layout>
+
+
+
+
+
+
+
+
