@@ -3,7 +3,7 @@ const entry = Astro.props
 
 ---
 
-<div class="px-8 sm:w-4/5 md:w-3/5 sm:mx-auto font-playfair tracking-wide leading-relaxed text-zinc-700 text-sm ">
+<div class="p-8 max-w-prose sm:w-4/5 md:w-3/5 sm:mx-auto font-serif tracking-wide leading-relaxed text-zinc-700 text-base lg:text-lg lg:py-24 ">
     <p class="text-center"> {entry.number}</p>
    <p class="entry"> {entry.entry}</p>
 </div>
@@ -12,6 +12,6 @@ const entry = Astro.props
 <style>
     .entry::first-letter {
         color: rgb(43, 43, 43);
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 </style>
