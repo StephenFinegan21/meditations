@@ -5,6 +5,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       'playfair': ['Playfair Display', 'serif'],
+      'libre' : ['Libre Baskerville', 'serif'],
       'sans': ['ui-sans-serif', 'system-ui'],
       'serif': ['ui-serif', 'Georgia'],
 

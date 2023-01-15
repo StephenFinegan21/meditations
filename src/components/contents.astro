@@ -2,13 +2,12 @@
 const posts = await Astro.glob('../data/*.md'); 
 ---
 
-<div class="text-zinc-600 py-4 w-11/12 mx-auto mt-12">
-  <h2 class="font-playfair text-xl font-semibold text-zinc-700">Contents</h2>
+<div class="text-zinc-600 py-4 w-11/12 mx-auto mt-12 font-sans">
     <div class='bg-slate-200 h-px my-2'></div>
 
 {posts.map(p => (
   <div class="py-4">
-    <a href={p.frontmatter.link}> <h4 class="text-zinc-600 text-sm">{p.frontmatter.title}</h4></a>
+    <a href={p.frontmatter.link}> <h4 class="text-zinc-600 text-base font-medium">{p.frontmatter.title}</h4></a>
     <div class='bg-slate-200 h-px my-2'></div>
   </div>))}
 </div>
