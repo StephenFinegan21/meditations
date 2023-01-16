@@ -8,6 +8,7 @@ module.exports = {
       'libre' : ['Libre Baskerville', 'serif'],
       'sans': ['ui-sans-serif', 'system-ui'],
       'serif': ['ui-serif', 'Georgia'],
+      'inter': ['Inter', 'sans-serif'],
 
     }
   },
