@@ -27,15 +27,15 @@ let current = -1
 
 ---
 <Layout title="Welcome to Astro.">
-  <div class="w-full flex justify-center items-center	h-12 pt-12 ">
- <h2 class="text-zinc-800  text-3xl font-semibold font-playfair "> {Astro.props.entry.frontmatter.title}</h2>
+  <div class="w-full flex justify-center items-center	h-12  pt-24 pb-12 md:pt-48 md:pb-24 ">
+ <h2 class="text-zinc-800 text-4xl sm:text-5xl md:text-7xl font-bold font-libre text-center "> {Astro.props.entry.frontmatter.title}</h2>
 </div>
 {formattedEntries.map((entry) => {
   current ++
 return(
  
 <Entry entry={entry} number={array[current]}/>
-<div class='bg-zinc-300 h-px  my-8 w-4/5 md:w-3/5 lg:w-2/5 mx-auto'></div>
+<div class='bg-zinc-300 h-px  my-8 w-11/12 md:w-3/5 lg:w-2/5 mx-auto'></div>
 )})}
  
 </Layout>
