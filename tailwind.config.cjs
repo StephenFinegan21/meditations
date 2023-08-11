@@ -9,6 +9,7 @@ module.exports = {
       'sans': ['ui-sans-serif', 'system-ui'],
       'serif': ['ui-serif', 'Georgia'],
       'inter': ['Inter', 'sans-serif'],
+      'garamond': ['Cormorant Garamond', 'serif']
 
     }
   },
